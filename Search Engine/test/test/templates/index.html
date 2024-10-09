@@ -1,0 +1,48 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Page</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <form method="POST">
+        <input
+            type="text"
+            name="query"
+            placeholder="Masukkan query"
+            value="{{ query }}"
+        />
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+    <table border="1">
+        <tr>
+            <th>Nama Rumah</th>
+            <th>Harga</th>
+            <th>LB</th>
+            <th>LT</th>
+            <th>KT</th>
+            <th>KM</th>
+            <th>GRS</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result['nama rumah'] }}</td>
+            <td>{{ result['harga'] }}</td>
+            <td>{{ result['lb'] }}</td>
+            <td>{{ result['lt'] }}</td>
+            <td>{{ result['kt'] }}</td>
+            <td>{{ result['km'] }}</td>
+            <td>{{ result['grs'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Tidak ada hasil ditemukan.</p>
+    {% endif %}
+</body>
+</html>
